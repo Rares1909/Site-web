@@ -1,0 +1,235 @@
+html{
+    --margine-main:40px;
+    --inaltime-buton:2.5em;
+    --dim-text:17px;
+    font-size:var(--dim-text);
+}
+
+body{
+    --culoare-buton:rgb(255, 208, 196);
+    --culoare-buton-selectat:rgb(245, 168, 255);
+    --culoare-border: #be06ec;
+    --mod-afisare-pagina:grid;
+    --inaltime-meniu:30 px;
+    --culoare-container:#B9EDF8;
+    background-color: rgba(57,186,232,1);
+    --inaltime-meniu:30px;
+}
+
+main{
+    background-color: rgba(255, 255, 255, 0.459);
+    margin-left:var(--margine-main);
+    margin-right:var(--margine-main);
+}
+
+section{
+    border:1px solid rgb(122, 112, 216);
+    padding:10px;
+}
+
+
+
+#container{
+    display: grid;
+    grid-template-areas: "z-Ranca z-Sinaia"
+                          "z-Poiana_Brasov z-Azuga";
+    grid-template-columns: 1fr 1fr;
+    background-color: #B9EDF8;
+            }
+
+    #Sinaia{
+      grid-area: z-Sinaia; }
+
+
+    #Ranca{
+        grid-area: z-Ranca;
+    }
+
+    #Poiana_Brasov{
+        grid-area: z-Poiana_Brasov
+    }
+    #Azuga{
+        grid-area: z-Azuga
+    }
+    
+ img{
+    width:80% ;
+}
+
+body{
+    --dim-border-meniu:1px;
+}
+
+/** Meniu ***/
+ul.meniu{
+    display: flex;
+}
+
+header{
+    margin-left:var(--margine-main);
+    margin-right:var(--margine-main);
+}
+
+ul.meniu, ul.submeniu{
+    padding:0;
+    margin:0;
+}
+
+ul.submeniu{
+    z-index:100;
+    position: relative;
+    left:-2px;
+}
+
+ul.meniu li{
+    list-style-type:none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    height: var(--inaltime-meniu);
+    background-color:rgb(2, 12, 151);
+    height: 20px;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    line-height:30px;
+    padding:0;
+    height: var(--inaltime-meniu);
+    transition:background-color 2s linear,box-shadow 1.5s linear;
+    box-shadow: 0px 0px 5px navy;
+}
+
+ul.meniu>li:hover{
+    overflow: visible;
+}
+
+
+
+nav ul{
+    padding:0;
+    margin:0;
+}
+
+ul.meniu li a{
+    text-decoration: none;
+    color: rgb(244, 251, 255);
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+
+ul.meniu li a:hover{
+    background-color: rgb(88, 148, 228);
+}
+
+ul.meniu ul{
+    position:relative;
+    right:var(--dim-border-meniu);
+}
+
+#Contact{
+    background-color:var(--culoare-container);
+}
+
+#chk-meniu{
+    display:none;
+}
+
+#img_meniu{
+    display:none;
+}
+
+#container{
+    counter-reset: nrsectiune;
+}
+
+#container h2::before{
+    content:"Titlu: ";
+    display:inline-block;
+    background-color:white;
+    border-radius:10px;
+    counter-increment: nrsectiune;
+    content:counter(nrsectiune)")";
+}
+
+#Cazare{
+    background-color: var(--culoare-container);
+}
+
+@media screen and (max-width:1000px){
+    #chk-meniu:checked~ul.meniu{
+        display:block
+
+    }
+
+  /*  #chk-meniu{
+        display:inline;
+    }*/
+
+
+    ul.meniu{
+        display:none;
+        position: relative;
+        animation: animatie_meniu 0.7s linear 1;
+    }
+
+    ul.meniu li{
+        width:100%;
+        box-sizing: border-box;
+        overflow:hidden;
+        position:relative;
+    }
+
+    ul.meniu li:nth-child(3){
+        width:100%;
+        box-sizing: border-box;
+        overflow:hidden;
+        position:relative;
+        font-size: small;
+    }
+
+    #container{
+
+        grid-template-areas: "z-Sinaia"
+        "z-Ranca"
+        "z-Poiana_Brasov"
+        "z-Azuga";
+        grid-template-columns: 1fr;
+                }
+    ul.meniu{
+        width:100%;
+        box-sizing: border-box;
+    }
+    ul.meniu ul{
+        position:absolute;
+        left:0px;
+        z-index:1;
+        width:100px;
+    }
+
+    #img_meniu{
+        height:var(--inaltime-meniu);
+        width: auto;
+        display:inline;
+    }
+
+    ul.meniu ul li{
+        background-color: blue;
+    }
+
+}
+
+@keyframes animatie_meniu{
+0%{
+    transform : scaleX(0);
+    opacity:10;
+    background-color:transparent;
+}
+
+100%{
+transform:scaleX(1);
+opacity:1;
+background-color: pink;
+}
+}
